@@ -11,7 +11,7 @@ import Landing from './components/Landing';
 function App() {
   return (
 
-  {/*<Router basename="/rfly"> */}
+ 
   <Router>
     <Switch>
         <Route path="/:url1" >
