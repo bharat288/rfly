@@ -10,7 +10,9 @@ import Home from './components/Home';
 import Landing from './components/Landing';
 function App() {
   return (
-    <Router basename="/rfly">
+
+  {/*<Router basename="/rfly"> */}
+  <Router>
     <Switch>
         <Route path="/:url1" >
           <Home />
