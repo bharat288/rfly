@@ -3,6 +3,7 @@ import MainBody from './mainbody/MainBody'
 import Topbar from './Topbar/Topbar'
 import RflyServices from "../services/RflyServices";
 import {useParams} from "react-router-dom"
+import {Helmet} from 'react-helmet'
 
 export default function Home(){
     const {url1} = useParams();
@@ -35,6 +36,7 @@ export default function Home(){
     useEffect(()=>{
         //console.log("value of url :"+url1)
         retrieveData();
+       
     },[]);
    
     const retrieveData = ()=>{
@@ -43,9 +45,7 @@ export default function Home(){
         RflyServices.getdata(dataval)
         .then(response=>{
             const data = response.data
-          //  console.log(data.data);
-            setHomeValue(data.data);
-
+            setHomeValue(data.data)
         })
         .catch(e=>{
             console.log(e);
@@ -56,7 +56,9 @@ export default function Home(){
     };
     return(
         <>
-        
+            <Helmet>
+                <title>{HomeValue.Name}</title>
+            </Helmet>
             <Topbar logo={HomeValue.logoUrl1} name={HomeValue.Name}/>
             <MainBody 
                 links ={HomeValue.links}
